@@ -10,11 +10,10 @@
 
 #define SERV_TCP_PORT 5035
 #define MAX 60
-int main(int arg,char*argv[])
+int main()
 {
        int sockfd,n;
        struct sockaddr_in serv_addr;
-       struct hostent*server;
        char send[MAX],recvline[MAX],s[MAX],name[MAX];
        sockfd=socket(AF_INET,SOCK_STREAM,0);
        serv_addr.sin_family=AF_INET;
