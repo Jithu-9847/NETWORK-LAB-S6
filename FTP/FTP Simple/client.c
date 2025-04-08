@@ -26,19 +26,19 @@ void main()
 	printf("[-]Client Connected \n");
 	
 	
-	 while(1)
-	 {	
+	 	
 		
 	printf("Enter the File name : ");
 	scanf("%s",buffer);
-	
 	send(client_fd,buffer,1024,0);
 	
-	recv(client_fd,buffer,1024,0);
-	printf("%s",buffer);
-	 
+	while(recv(client_fd,buffer,1024,0)!=0)
+	{
+		recv(client_fd,buffer,1024,0);
+		printf("%s",buffer);
 	}
+		
 	 
-	printf("[-]Client Exited!");
+	printf("[-]Client Exited!\n");
 	close(client_fd);
 }
