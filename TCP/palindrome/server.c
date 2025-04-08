@@ -5,10 +5,7 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 
-int fac(int n)
-{
-    return (n <= 1) ? 1 : n * fac(n - 1);
-}
+ 
 
 int main()
 {
@@ -33,9 +30,6 @@ int main()
     while (1)
     {
         recv(client_fd, buffer, sizeof(buffer), 0);
-        int num;
-        num = atoi(buffer);
-        char res[100];
         int j = strlen(buffer) - 1, i = 0;
         while (i <= j)
         {
