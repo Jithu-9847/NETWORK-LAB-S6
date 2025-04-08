@@ -32,21 +32,18 @@ void main()
 	printf("[-]Client Connected \n");
 	
 	
-	 while(1)
-	 {
+	 
 		recv(client_fd,buffer,1024,0);
 		
 		f1=fopen(buffer,"r");
 		
 		bzero(buffer,1024);
-		
-		fgets(buffer,1024,f1);
-		
-		send(client_fd,buffer,sizeof(buffer),0);
+		while(fgets(buffer,1024,f1)!=NULL)
+			send(client_fd,buffer,strlen(buffer),0);
 		
 		 
-	}	
+	 	
 	 
-	printf("[-]Client Exited!");
+	printf("[-]Client Exited!\n");
 	close(client_fd);
 }
